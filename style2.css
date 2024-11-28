@@ -1,0 +1,244 @@
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    background-color: white;
+    margin: 0px;
+  }
+
+.navbar{
+    z-index: 100;
+    display: flex;
+    flex-direction: column-reverse;
+    position: fixed;
+    width: 100%;
+    height: 85%;
+    bottom: 0px;
+}
+
+.drup-logo{
+    width: 45%;
+}
+
+.navbar-toggle{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0);
+    border-color: rgba(0, 0, 0, 0);
+    margin-left: auto;
+    width: 13%;
+}
+
+.buttonlines{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+    width: 100%;
+    height: 100%;
+    margin-top: 32%;
+}
+
+.nav-button-line{
+    display: flex;
+    background-color: #888;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7%;
+    margin-bottom: 13%;
+    width: 80%;
+    height: 6%;
+}
+
+.navmenu{
+    display:flex;
+    order: 2;
+    flex-direction: column;
+    background-color: #00000a;
+    width: 100%;
+    height: 0%;
+    margin: 0;
+    padding: 0;
+    transition: all 0.4s;
+}
+
+.navmenuopened{
+    height: 91%;
+    background-color: #00000a;
+    border-top: solid;
+    border-top-width: 1px;
+    border-top-color: rgb(116, 116, 116);
+    border-bottom: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: rgb(255, 255, 255);
+}
+
+.menuline{
+    display: flex;
+    order: 1;
+    flex-direction: column;
+    margin-left: 5%;
+    margin-top: 4%;
+}
+
+.menulinewrapper{
+    display: flex;
+    flex-direction: row;
+}
+
+.innermenuline{
+    display: flex;
+    flex-direction: row;
+    margin-top: 4%;
+}
+
+.menulink{
+    display: flex;
+    text-decoration: none;
+    color: white;
+    order: 1;
+    font-size: smaller;
+}
+
+.triangle{
+    display: flex;
+    order: 2;
+    width: 0px;
+    height: 0px;
+    margin-top: 7px;
+    margin-left: 5px;
+    border: solid transparent;
+    border-width: 5px;
+    border-top: solid white;
+    border-top-width: 6px;
+}
+
+header{
+    display: flex;
+    order:1;
+    flex-direction: row;
+    background-color: #00000a;
+    bottom: 0px;
+    width: 100%;
+    height: 9%;
+}
+
+@media screen and (min-width: 768px) {
+    .navbar{
+        display: flex;
+        flex-direction: row;
+        position: initial;
+        width: 96%;
+        height: 100px;
+        top: 0px;
+    }
+    
+    .drup-logo{
+        width: 300px;
+        margin-left: 50%;
+    }
+    
+    .navbar-toggle{
+        display: none;
+    }
+    
+    .navmenu{
+        display:flex;
+        order: 2;
+        flex-direction: row;
+        background-color: #00000a;
+        width: 100%;
+        height: 0%;
+        margin-left: 0;
+        padding: 0;
+    }
+    
+    .menuline{
+        display: flex;
+        order: 1;
+        flex-direction: column;
+        margin-left: 2%;
+        margin-top: 3%;
+    }
+
+    .menuline:hover .innermenu{
+        display: flex;
+    }
+    
+    .innermenu{
+        display: none;
+        position: absolute;
+        margin-top: 21px;
+        order: 2;
+        flex-direction: column;
+        padding-inline-start: 20px; 
+        background-color: #f14e3b;
+    }
+    
+    .menulinewrapper{
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .innermenuline{
+        display: flex;
+        flex-direction: row;
+        margin-top: 1%;
+        margin-bottom: 1%;
+        margin-left: -20px;
+        height: 25px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .innermenuline:hover{
+        background-color: #c43c2d;
+        transition: 0.5s;
+    }
+    
+    .menulink{
+        display: flex;
+        text-decoration: none;
+        margin-top: 4px;
+        color: white;
+        order: 1;
+        border-bottom: solid;
+        font-size: smaller;
+        border-bottom-color: rgba(0, 0, 0, 0);
+    }
+
+    .menulink:hover{
+        border-bottom-color: #f14e3b;
+        transition: 0.2s;
+    }
+
+    .innermenulink:hover{
+        border-bottom-color: rgba(0, 0, 0, 0);
+    }
+    
+    .triangle{
+        display: flex;
+        order: 2;
+        width: 0px;
+        height: 0px;
+        margin-top: 10px;
+        margin-left: 5px;
+        border: solid transparent;
+        border-width: 5px;
+        border-top: solid white;
+        border-top-width: 6px;
+    }
+    
+    header{
+        display: flex;
+        order:1;
+        flex-direction: row;
+        background-color: rgba(0, 0, 0, 0);
+        top: 0px;
+        width: 50%;
+        height: 100px;
+    }    
+}
