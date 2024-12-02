@@ -1930,6 +1930,10 @@ a, button {
   transform: scaleX(130%) translateX(10%);
 }
 
+#slick-customers-second {
+  transform: scaleX(130%) translateX(10%);
+}
+
 body {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
