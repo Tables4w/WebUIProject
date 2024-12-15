@@ -1,138 +1,140 @@
-
-$(document).ready(()=>{
+/*jslint browser: true*/ /*global  $*/ /*global  jQuery*/
+$(document).ready(function(){
     const $navMenu = $("#mobileMenu");
-    $("#navbar-toggle").click(function(event){
-        $navMenu.toggle("slide", { direction: "down" }, 600)
+    jQuery('.ntgl').click(function(){
+        $navMenu.toggle("slide", { direction: "down" }, 600);
     });
 
-    const updateSliderCounter =(current, total)=>{
-        current = current < 10 ? "0" + current : current;
-        total = total < 10 ? "0" + total : total;
-        $(".slick-review-counter").text(current+"/"+total)
+    const updateSliderCounter = function (current, total){
+        current = (
+            current < 10 ? "0" + current : current);
+        total = (
+            total < 10 ? "0" + total : total);
+        $(".slick-review-counter").text(current+"/"+total);
 
     };
 
-    const $slickReview = $("#slick-review")
+    const $slickReview = $("#slick-review");
 
-    $slickReview.on("init", function (ev, slick){
+    //(ev Необходим для работы slick, но jsl
+    //считает ошибкой то, что он не используется внутри)
+    $slickReview.on("init", function (ev, slick){ //jslint-ignore-line
         updateSliderCounter(slick.slickCurrentSlide() + 1, slick.slideCount);
-    })
+    });
 
 
     $slickReview.slick({
         dots: false,
-        prevArrow: '',
         nextArrow: '',
-    })
-
-    $slickReview.on('afterChange', function (ev, slick){
+        prevArrow: ''
+    });
+    
+    //(ev Необходим для работы slick, но jsl
+    //считает ошибкой то, что он не используется внутри)
+    $slickReview.on('afterChange', function (ev, slick){ //jslint-ignore-line
         updateSliderCounter(slick.slickCurrentSlide()+1, slick.slideCount);
-    })
+    });
 
     $(".review-arrow-prev").click(function (){
-        $("#slick-review").slick("slickPrev")
-    })
+        $("#slick-review").slick("slickPrev");
+    });
     $(".review-arrow-next").click(function (){
-        $("#slick-review").slick("slickNext")
-    })
+        $("#slick-review").slick("slickNext");
+    });
     $('.panel-btn').click(function (){
         const t = $(this).parents(".panel");
-        t.toggleClass("panel_open")
-        t.toggleClass("panel_close")
-        t.children(".panel-body").slideToggle(400)
-    })
+        t.toggleClass("panel_open");
+        t.toggleClass("panel_close");
+        t.children(".panel-body").slideToggle(400);
+    });
     $('#slick-customers-first').slick({
-        infinite: true,
-        speed: 600,
         autoplay: true,
         autoplaySpeed: 2000,
+        infinite: true,
         nextArrow: ``,
         prevArrow: ``,
-        slidesToShow: 6,
-        slidesToScroll: 1,
         responsive: [
             {
                 breakpoint: 1024,
                 settings: {
-                    slidesToShow: 5,
-                    slidesToScroll: 1,
                     infinite: true,
+                    slidesToScroll: 1,
+                    slidesToShow: 5
                 }
             },
             {
                 breakpoint: 600,
                 settings: {
-                    slidesToShow: 4,
-                    slidesToScroll: 2
+                    slidesToScroll: 2,
+                    slidesToShow: 4
                 }
             },
             {
                 breakpoint: 480,
                 settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1
+                    slidesToScroll: 1,
+                    slidesToShow: 3
                 }
             }
             // You can unslick at a given breakpoint now by adding:
             // settings: "unslick"
             // instead of a settings object
-        ]
+        ],
+        slidesToScroll: 1,
+        slidesToShow: 6,
+        speed: 600
     });
     $('#slick-customers-second').slick({
-        infinite: true,
-        speed: 600,
         autoplay: true,
         autoplaySpeed: 3250,
+        infinite: true,
         nextArrow: ``,
         prevArrow: ``,
-        slidesToShow: 6,
-        slidesToScroll: 1,
         responsive: [
             {
                 breakpoint: 1024,
                 settings: {
-                    slidesToShow: 5,
-                    slidesToScroll: 1,
                     infinite: true,
+                    slidesToScroll: 1,
+                    slidesToShow: 5
                 }
             },
             {
                 breakpoint: 600,
                 settings: {
-                    slidesToShow: 4,
-                    slidesToScroll: 2
+                    slidesToScroll: 2,
+                    slidesToShow: 4
                 }
             },
             {
                 breakpoint: 480,
                 settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1
+                    slidesToScroll: 1,
+                    slidesToShow: 3
                 }
             }
             // You can unslick at a given breakpoint now by adding:
             // settings: "unslick"
             // instead of a settings object
-        ]
+        ],
+        slidesToScroll: 1,
+        slidesToShow: 6,
+        speed: 600
     });
 
     $('form').on('submit', function(event) {
         event.preventDefault();
-        var $form = $(this);
-        var $inputs = $form.find('input, button, textarea');
-        var serializedData = $form.serialize();
-    
+        let $form = $(this);
+        let $inputs = $form.find('input, button, textarea');
+        let serializedData = $form.serialize();
         $inputs.prop('disabled', true);
-    
         $.ajax({
-            url: "https://formcarry.com/s/GIBUnfMHYgB",
-            type: 'POST',
-            data: serializedData,
-            success: function(response) {
-            },
             complete: function() {
                 $inputs.prop('disabled', false);
-            }
+            },
+            data: serializedData,
+            type: 'POST',
+            url: "https://formcarry.com/s/GIBUnfMHYgB"
         });
     });
-})
+});
